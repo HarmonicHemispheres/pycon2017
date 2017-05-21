@@ -1,0 +1,31 @@
+version: '2'
+services:
+  web:
+      build: .
+      ports:
+       - "5000:5000"
+      volumes:
+       - .:/code
+      depends_on:
+       - agent
+       - redis
+  taster:
+      build:
+        context: .
+        dockerfile: Dockerfile_taster
+      ports:
+       - "5001:5001"
+      volumes:
+       - .:/code
+      depends_on:
+       - agent
+       - redis
+  redis:
+      image: "redis:alpine"
+  agent:
+      image: "datadog/docker-dd-agent:latest"
+      environment:
+          - API_KEY=your_api_key_here
+          - DD_APM_ENABLED=true
+      ports:
+       - "8126:8126"
