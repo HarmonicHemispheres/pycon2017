@@ -21,4 +21,4 @@ Pycon 2017 is a conference dedicated to the python community.
     - The Python Visualization Landscape
     - Python for mathematical visualization: a four-dimensional case study
 - SUNDAY
-    - 
+    - add content...
